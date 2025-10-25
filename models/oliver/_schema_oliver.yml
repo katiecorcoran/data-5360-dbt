@@ -7,3 +7,8 @@ models:
   - name: oliver_dim_store,
   - name: oliver_dim_date,
   - name: fact_sales
+  - name: fact_certification
+    description: |
+      Employee Certification Fact.
+      The grain of this table is certification + employee
+      Each record represents a certification an employee has received.
