@@ -1,9 +1,32 @@
 version: 2
 
 models:
-  - name: oliver_dim_customer,
-  - name: oliver_dim_employee,
-  - name: oliver_dim_product,
-  - name: oliver_dim_store,
-  - name: oliver_dim_date,
+  - name: oliver_dim_customer
+    columns:
+      - name: customer_key
+        tests:
+          - unique
+  - name: oliver_dim_employee
+    columns:
+      - name: position
+        tests:
+          - accepted_values:
+              values:
+                - "Customer Service"
+                - "Sales Associate"
+                - "Stock Clerk"
+                - "Manager"
+                - "Cashier"
+  - name: oliver_dim_product
+  - name: oliver_dim_store
+  - name: oliver_dim_date
   - name: fact_sales
+    columns:
+      - name: customer_key
+        tests:
+          - not_null
+      - name: employee_key
+        tests:
+          - relationships:
+              to: ref('oliver_dim_employee')
+              field: employee_key
