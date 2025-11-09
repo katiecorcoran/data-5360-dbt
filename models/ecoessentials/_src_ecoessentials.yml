@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: ecoessentials_landing
+    database: group2project
+    schema: ecoessentials_transactional_db
+    tables:
+      - name: customer
+      - name: orders
+      - name: order_line
+      - name: product
+      - name: promotional_campaign
+      - name: marketing_emails
